@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { getWeek, getYear } from "date-fns";
 import { id } from "date-fns/locale";
 import { generateCategories } from "../lib/categories";
+import { getRandomNumber } from "../lib/util";
 import firebaseConfig from "../firebase-config.json";
 console.log(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
@@ -92,6 +93,26 @@ export function useWeeklyPlan(userId) {
     fetchPlan();
   }, [userId]);
   return [weekPlan, setWeekPlan];
+}
+
+export function useRandomRecipe(category){
+  const [recipe, setRecipe] = useState();
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      const result = await db
+        .collection("recipe")
+        .where("categories", "array-contains", category)
+        .get().then(function(querySnapshot) {
+          setRecipe(querySnapshot.docs[getRandomNumber(0,querySnapshot.docs.length-1)].data());
+      }).catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+  
+    };
+    fetchRecipe();
+  },[]);
+
+  return recipe;
 }
 
 export function useSettings(userId) {

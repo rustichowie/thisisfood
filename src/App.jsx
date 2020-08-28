@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.scss";
 //import "bulma";
-import { useWeeklyPlan, useSettings } from "./hooks/firebase-hook";
+import { useWeeklyPlan, useSettings, useRandomRecipe } from "./hooks/firebase-hook";
 import Intro from "./components/Intro";
+
 
 //TODO: Change this to be the current user
 const userId = "32442432";
