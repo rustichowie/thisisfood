@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+$family-sans-serif: 'Lato', sans-serif;
+
+@import '../node_modules/bulma/sass/utilities/_all.sass';
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import '../node_modules/bulma/sass/base/_all.sass';
+@import '../node_modules/bulma/sass/elements/button.sass';
+@import '../node_modules/bulma/sass/elements/container.sass';
+@import '../node_modules/bulma/sass/elements/form.sass';
+@import '../node_modules/bulma/sass/elements/title.sass';
+@import '../node_modules/bulma/sass/components/navbar.sass';
+@import '../node_modules/bulma/sass/layout/hero.sass';
+@import '../node_modules/bulma/sass/layout/section.sass';
+@import '../node_modules/bulma/sass/form/_all.sass';
+
+
+.intro {
+    .checkbox {
+        margin-right: 0.5rem;
+        input[type="checkbox"]{
+            margin-right: 0.5rem;
+        }
+    }
+    
+}
